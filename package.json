@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce-tdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/myazarc/ecommerce-tdd",
+  "author": "myazarc <myazarc@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon .",
+    "compile": "rimraf dist && tsc",
+    "compile:watch": "tsc -w",
+    "test": "jest",
+    "coverage": "jest --coverage",
+    "dev": "yarn compile && concurrently \"yarn compile:watch\" \"yarn start\""
+  },
+  "devDependencies": {
+    "@types/jest": "^27.5.0",
+    "concurrently": "^7.1.0",
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^28.0.2",
+    "typescript": "^4.6.4"
+  }
+}
