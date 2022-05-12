@@ -1,14 +1,26 @@
 import request from "supertest";
+import { DataSource } from "typeorm";
 import app from "../src/app";
+import { appDataSource } from "../src/common/context/db.context";
+
+let dbConnection: DataSource;
+beforeAll(async () => {
+  dbConnection = await appDataSource.initialize();
+  return Promise.resolve();
+});
+
+afterAll(() => {
+  return dbConnection.close();
+});
 
 describe("UserService /user", () => {
   it("POST /register => created user", () => {
     return request(app)
       .post("/user/register")
       .send({
-        username: "test",
-        password: "test",
-        email: "test@example.ext",
+        Username: "test",
+        Password: "test",
+        EMail: "test@example.ext",
       })
       .expect(201);
   });
@@ -17,8 +29,8 @@ describe("UserService /user", () => {
     return request(app)
       .post("/user/login")
       .send({
-        username: "test",
-        password: "test",
+        Username: "test",
+        Password: "test",
       })
       .expect(200)
       .expect((response) => {
@@ -33,7 +45,7 @@ describe("UserService /user", () => {
 
   it("GET /confirmation/:usermailtoken => approved user mail", () => {
     return request(app)
-      .get("/user/confirmation/test_approve_email_key")
+      .get("/user/confirmation/test_approve_EMail_key")
       .expect(200)
       .expect((response) => {
         expect(response.body).toEqual(
@@ -51,8 +63,8 @@ describe("UserService /user", () => {
       .expect((response) => {
         expect(response.body).toEqual(
           expect.objectContaining({
-            username: "test",
-            email: "test@example.ext",
+            Username: "test",
+            EMail: "test@example.ext",
           })
         );
       });
