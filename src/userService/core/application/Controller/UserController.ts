@@ -12,7 +12,9 @@ export class UserController {
   async createUser(req: Request, res: Response) {
     const result = new JsonResponse();
     try {
-      const userId = await userCommandHandler.createUser(new CreateUserCommand(req.body));
+      // const userId = await userCommandHandler.createUser(new CreateUserCommand(req.body));
+      const userId = await userCommandHandler.createUser(req.body as CreateUserCommand);
+
       if (userId) {
         result.setSuccess();
         res.status(201);

@@ -1,13 +1,11 @@
+import { AutoMap } from "@automapper/classes";
 export class CreateUserCommand {
+  @AutoMap()
   public Username: string;
+  @AutoMap()
   public Password: string;
+  @AutoMap()
   public EMail: string;
-
-  constructor(payload: any) {
-    this.Username = payload.Username;
-    this.Password = payload.Password;
-    this.EMail = payload.EMail;
-  }
 
   toPlainObj() {
     return Object.assign({}, this);

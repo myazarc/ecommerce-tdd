@@ -10,6 +10,16 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@automapper/classes@^8.3.6":
+  version "8.3.6"
+  resolved "https://registry.yarnpkg.com/@automapper/classes/-/classes-8.3.6.tgz#e50bba62d509efe0a23660008a152ca5d45ef21d"
+  integrity sha512-PN6Yic0riPrnSagI+v0eR2OJ647N2fVsfvQWrjoIVzXRXmoUANTUjMiWIBy0/mTkJlklmQf6wEQt/oCfHp2GCA==
+
+"@automapper/core@^8.3.6":
+  version "8.3.6"
+  resolved "https://registry.yarnpkg.com/@automapper/core/-/core-8.3.6.tgz#e5dbe6424919773e51b942a35334328f1ca2dd35"
+  integrity sha512-9j6Vy5/ZxR8KfF118ugbTm1SJknILXZ7Kvq166xAcz2mCzZbQt3CABWvEVkmSNFr3Jz8XJLG1zarDTFRWjqW2Q==
+
 "@azure/abort-controller@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@azure/abort-controller/-/abort-controller-1.1.0.tgz#788ee78457a55af8a1ad342acb182383d2119249"

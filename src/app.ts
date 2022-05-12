@@ -5,6 +5,7 @@ import morgan from "morgan";
 import * as dotenv from "dotenv";
 
 import "reflect-metadata";
+import "./common/Mappings/Mapper";
 
 dotenv.config();
 

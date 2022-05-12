@@ -1,6 +1,7 @@
 import { User } from "./../../../domain/Models/User";
-import { CreateUserCommand } from "src/common/Models/User/CreateUserCommand";
+import { CreateUserCommand } from "../../../../../common/Models/User/CreateUserCommand";
 import { UserRepository } from "../../Repositories/UserRepository";
+import { mapper } from "../../../../../common/Mappings/Mapper";
 
 export class UserCommandHandler {
   private readonly userRepository: UserRepository;
@@ -15,12 +16,8 @@ export class UserCommandHandler {
     //check exist username
 
     //check email existname
-    // ? add automapper
-    const userDto = new User();
-    userDto.EMail = request.EMail;
-    userDto.EMail_Confirmed = false;
-    userDto.Username = request.Username;
-    userDto.Password = request.Password;
+    const userDto = mapper.map(request, CreateUserCommand, User);
+
     const user = await this.userRepository.save(userDto);
     return user.Id as number;
   }

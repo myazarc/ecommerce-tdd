@@ -10,7 +10,7 @@ beforeAll(async () => {
 });
 
 afterAll(() => {
-  return dbConnection.close();
+  return dbConnection.destroy();
 });
 
 describe("UserService /user", () => {
